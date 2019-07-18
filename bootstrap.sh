@@ -1,4 +1,4 @@
-#!/usr/bash
+#!/bin/bash
 # Run as sudo
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root, use sudo "$0" instead" 1>&2

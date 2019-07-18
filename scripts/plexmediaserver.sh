@@ -1,4 +1,4 @@
-#!/usr/bash
+#!/bin/bash
 
 __downloads_dir=~/Downloads
 
