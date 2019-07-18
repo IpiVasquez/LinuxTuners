@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Update
-apt-get -y update
+apt-get update
 apt-get -y upgrade
 
 # Mounting point
