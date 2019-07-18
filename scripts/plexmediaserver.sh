@@ -1,9 +1,14 @@
 #!/bin/bash
 
-__downloads_dir=~/Downloads
+# Adding plex to sources list for automatic updates
+echo deb https://downloads.plex.tv/repo/deb public main \
+  | tee /etc/apt/sources.list.d/plexmediaserver.list
+# Retrieving key
+curl https://downloads.plex.tv/plex-keys/PlexSign.key | apt-key add -
 
-mkdir -p __downloads_dir
+# Updating & installing
+apt-get update
+apt-get -y install plexmediaserver
 
-wget https://downloads.plex.tv/plex-media-server/1.14.1.5488-cc260c476/plexmediaserver_1.14.1.5488-cc260c476_amd64.deb \
-  -o -P $__downloads_dir
-sudo dpkg -i plexmediaserver*.deb
+systemctl enable plexmediaserver.service
+systemctl start plexmediaserver.service
